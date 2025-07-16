@@ -24,4 +24,8 @@ urlpatterns = [
     path('about/',views.about, name='about'),
     path('contact/',views.contact, name='contact'),
     path('chai/', include('chai.urls')),
+    
+    
+    # it should always be in the end it is used for the auto reload 
+    path("__reload__/", include("django_browser_reload.urls")),
 ]

@@ -1,11 +1,30 @@
+{% load static tailwind_tags %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Cars</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% tailwind_css %}
 </head>
 <body>
-    <h1>All types of Cars</h1>
+    <header>
+        <h1 class="bg-sky-500 text-3xl">All types of Cars</h1>
+    </header>
+
+    <main class="content-container">
+        <!-- Car content will go here -->
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <p>&copy; 2025 Car World. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <p>Imran Khan</p>
+        </div>
+    </footer>
 </body>
 </html>
