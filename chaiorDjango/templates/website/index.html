@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars Showcase</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>🏎️ Welcome to Car World</h1>
+        <p>Find your dream car below</p>
+    </header>
+
+    <main class="car-container">
+        <div class="car-card">
+            <img src="{% static 'images/Ford Mustang.jfif' %}" alt="Ford Mustang">
+            <h2>Ford Mustang</h2>
+            <p>Price: $55,000</p>
+            <p>Iconic American muscle car with a V8 engine.</p>
+        </div>
+
+        <div class="car-card">
+            <img src="{% static 'images/mustang_modern.avif' %}" alt="Mustang Modern">
+            <h2>Mustang GT Modern</h2>
+            <p>Price: $65,000</p>
+            <p>Modern Mustang GT with aggressive design and top-tier performance.</p>
+        </div>
+
+        <div class="car-card">
+            <img src="{% static 'images/ford-mustang-eu.jpg' %}" alt="European Mustang">
+            <h2>Mustang EU Edition</h2>
+            <p>Price: $58,000</p>
+            <p>European edition with elegant styling and premium features.</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <p>&copy; 2025 Car World. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <p>Imran Khan</p>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>
