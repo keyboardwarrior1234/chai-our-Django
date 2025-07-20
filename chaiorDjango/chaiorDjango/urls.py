@@ -30,4 +30,4 @@ urlpatterns = [
     
     # it should always be in the end it is used for the auto reload 
     path("__reload__/", include("django_browser_reload.urls")),
-] + static(settings.MEDIA_URL, documents_root = settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

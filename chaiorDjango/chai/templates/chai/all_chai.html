@@ -1,30 +1,46 @@
 {% load static tailwind_tags %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Cars</title>
+    <title>Chai World - All Chais</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     {% tailwind_css %}
 </head>
-<body>
-    <header>
-        <h1 class="bg-sky-500 text-3xl">All types of Cars</h1>
+<body class="flex flex-col min-h-screen bg-[#f8fafc] text-gray-800">
+
+    <!-- Header like Car World -->
+    <header class="bg-[#1e2a57] text-white py-10 shadow-md text-center">
+        <h1 class="text-4xl font-extrabold">☕ Welcome to Chai World</h1>
+        <p class="text-lg mt-2">Find your favorite chai below</p>
     </header>
 
-    <main class="content-container">
-        <!-- Car content will go here -->
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+            {% for chai in chais %}
+            <div class="bg-[#eceafb] rounded-2xl p-4 shadow-md hover:shadow-xl transition text-center">
+                <div class="rounded-xl overflow-hidden mb-4">
+                    <img src="{{ chai.image.url }}" alt="" class="w-full h-48 object-cover">
+                </div>
+                <h2 class="text-xl font-bold text-[#222d65]">{{  chai.get_type_display}}</h2>
+                
+            </div>
+            {% empty %}
+            <p class="col-span-3 text-center text-gray-500">No chai varieties found.</p>
+            {% endfor %}
+
+        </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-left">
-            <p>&copy; 2025 Car World. All rights reserved.</p>
-        </div>
-        <div class="footer-right">
-            <p>Imran Khan</p>
-        </div>
+    <!-- Footer like Car World -->
+    <footer class="bg-[#1e2a57] text-white py-6 mt-auto text-center">
+        <p class="text-sm">&copy; 2025 Chai World. All rights reserved.</p>
+        <p class="text-sm mt-1">Imran Khan</p>
     </footer>
+
 </body>
 </html>
