@@ -11,7 +11,7 @@
 </head>
 <body class="flex flex-col min-h-screen bg-[#f8fafc] text-gray-800">
 
-    <!-- Header like Car World -->
+    <!-- Header -->
     <header class="bg-[#1e2a57] text-white py-10 shadow-md text-center">
         <h1 class="text-4xl font-extrabold">☕ Welcome to Chai World</h1>
         <p class="text-lg mt-2">Find your favorite chai below</p>
@@ -22,21 +22,27 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 
             {% for chai in chais %}
-            <div class="bg-[#eceafb] rounded-2xl p-4 shadow-md hover:shadow-xl transition text-center">
-                <div class="rounded-xl overflow-hidden mb-4">
-                    <img src="{{ chai.image.url }}" alt="" class="w-full h-48 object-cover">
-                </div>
-                <h2 class="text-xl font-bold text-[#222d65]">{{  chai.get_type_display}}</h2>
-                
-            </div>
-            {% empty %}
-            <p class="col-span-3 text-center text-gray-500">No chai varieties found.</p>
-            {% endfor %}
+<a href="{% url 'chai_detail' chai.id %}" class="block">
+    <div class="bg-[#eceafb] rounded-2xl p-4 shadow-md hover:shadow-xl transition text-center hover:scale-[1.02] duration-200">
+        <div class="rounded-xl overflow-hidden mb-4">
+            <img src="{{ chai.image.url }}" alt="{{ chai.name }}" class="w-full h-48 object-cover">
+        </div>
+        <h2 class="text-xl font-bold text-[#222d65]">{{ chai.name }}</h2>
+        <p class="text-sm text-gray-600 mt-1">{{ chai.get_type_display }}</p>
+        <p class="text-base text-[#1e2a57] mt-1">
+    <span class="font-bold">Rs</span> {{ chai.price }}
+</p>
+    </div>
+</a>
+{% empty %}
+<p class="col-span-3 text-center text-gray-500">No chai varieties found.</p>
+{% endfor %}
+
 
         </div>
     </main>
 
-    <!-- Footer like Car World -->
+    <!-- Footer -->
     <footer class="bg-[#1e2a57] text-white py-6 mt-auto text-center">
         <p class="text-sm">&copy; 2025 Chai World. All rights reserved.</p>
         <p class="text-sm mt-1">Imran Khan</p>

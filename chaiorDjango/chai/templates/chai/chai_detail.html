@@ -1,0 +1,48 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ chai.name }} - Chai Detail</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% tailwind_css %}
+</head>
+<body class="flex flex-col min-h-screen bg-[#f8fafc] text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-[#1e2a57] text-white py-6 shadow text-center">
+        <h1 class="text-3xl font-bold">☕ {{ chai.name }}</h1>
+        <p class="text-sm mt-1">{{ chai.get_type_display }}</p>
+    </header>
+
+    <!-- Chai Details -->
+    <main class="flex-1 flex flex-col items-center justify-center p-6">
+        <div class="bg-[#eceafb] rounded-xl shadow-md p-6 max-w-md w-full text-center">
+           <div class="mb-4">
+    <img src="{{ chai.image.url }}" alt="{{ chai.name }}" class="w-64 h-48 object-cover mx-auto rounded-md">
+</div>
+
+            <h2 class="text-2xl font-semibold text-[#222D65] mb-2">{{ chai.name }}</h2>
+           <p class="text-base text-[#1e2a57] mt-1">
+    <span class="font-bold">Rs</span> {{ chai.price }}
+</p>
+            {% if chai.description %}
+            <p class="text-gray-700 text-base">{{ chai.description }}</p>
+            {% else %}
+            <p class="text-gray-500 text-sm italic">No description available.</p>
+            {% endif %}
+
+            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1e2a57] text-white text-center py-4 mt-auto">
+        <p class="text-sm">&copy; 2025 Chai World. All rights reserved.</p>
+        <p class="text-sm mt-1">Imran Khan</p>
+    </footer>
+
+</body>
+</html>
